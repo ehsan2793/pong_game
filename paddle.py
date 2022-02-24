@@ -10,11 +10,16 @@ class Paddle(Turtle):
         self.color("white")
         self.shapesize(stretch_wid=5, stretch_len=1)
         self.setposition(x=x, y=y)
+        self.up_down_speed = 20
 
     def go_up(self):
-        new_ycor = self.ycor() + 20
+        new_ycor = self.ycor() + self.up_down_speed
         self.sety(new_ycor)
 
     def go_down(self):
-        new_ycor = self.ycor() - 20
+        new_ycor = self.ycor() - self.up_down_speed
         self.sety(new_ycor)
+
+    def add_to_speed(self):
+        self.up_down_speed *= 1.05
+        print(self.up_down_speed)

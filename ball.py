@@ -15,7 +15,13 @@ class Ball(Turtle):
         y = self.ycor() + self.y_move
         self.setposition(x=x, y=y)
 
-    def bounce(self):
+    def bounce_from_wall(self):
         self.y_move = - self.y_move
         y = self.ycor() + self.y_move
         self.sety(y)
+
+    def bounce_from_paddle(self):
+        self.x_move *= 1.08
+        self.x_move = - self.x_move
+        x = self.xcor() + self.x_move
+        self.setx(x)
