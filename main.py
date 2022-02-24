@@ -10,8 +10,8 @@ screen.bgcolor('black')
 screen.listen()
 screen.tracer(0)
 
-r_paddle = Paddle(375)
-l_paddle = Paddle(-385)
+r_paddle = Paddle(365)
+l_paddle = Paddle(-375)
 ball = Ball()
 
 screen.onkey(r_paddle.go_up, "Up")
@@ -29,8 +29,16 @@ while game_is_running:
     if ball.ycor() > 285 or ball.ycor() < -285:
         ball.bounce_from_wall()
     #   Detect collisions with right paddle
-    if ball.distance(r_paddle) < 32 and ball.xcor() > 305 or ball.distance(l_paddle) < 32 and ball.xcor() < -305 :
+    if ball.distance(r_paddle) < 32 and ball.xcor() > 305 or ball.distance(l_paddle) < 32 and ball.xcor() < -305:
         ball.bounce_from_paddle()
         r_paddle.add_to_speed()
         l_paddle.add_to_speed()
+
+    # when R missed  the ball
+    if ball.xcor() > 375:
+        ball.start_in_center()
+
+    # L paddle missed the ball
+    if ball.xcor() < -385:
+        ball.start_in_center()
 screen.exitonclick()

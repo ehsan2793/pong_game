@@ -21,7 +21,11 @@ class Ball(Turtle):
         self.sety(y)
 
     def bounce_from_paddle(self):
-        self.x_move *= 1.08
+        # self.x_move *= 1.08
         self.x_move = - self.x_move
         x = self.xcor() + self.x_move
         self.setx(x)
+
+    def start_in_center(self):
+        self.x_move = - self.x_move
+        self.setposition(x=0, y=0)

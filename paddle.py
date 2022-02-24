@@ -22,4 +22,3 @@ class Paddle(Turtle):
 
     def add_to_speed(self):
         self.up_down_speed *= 1.05
-        print(self.up_down_speed)
