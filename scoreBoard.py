@@ -12,7 +12,6 @@ class ScoreBoard(Turtle):
         self.position = (x, y)
         self.update_score()
 
-
     def update_score(self):
         self.setposition(self.position)
         self.clear()
